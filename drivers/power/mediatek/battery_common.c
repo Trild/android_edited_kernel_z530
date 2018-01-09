@@ -1418,7 +1418,7 @@ static ssize_t show_Charger_TopOff_Value(struct device *dev, struct device_attri
 					 char *buf)
 {
 	int ret_value = 1;
-	ret_value = 4110;
+	ret_value = 4350;
 	battery_log(BAT_LOG_CRTI, "[EM] Charger_TopOff_Value : %d\n", ret_value);
 	return sprintf(buf, "%u\n", ret_value);
 }
