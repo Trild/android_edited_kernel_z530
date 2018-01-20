@@ -45,10 +45,10 @@ static LCM_UTIL_FUNCS lcm_util = {0};
 
 #define dsi_set_cmdq_V2(cmd, count, ppara, force_update)	lcm_util.dsi_set_cmdq_V2(cmd, count, ppara, force_update)
 #define dsi_set_cmdq(pdata, queue_size, force_update)		lcm_util.dsi_set_cmdq(pdata, queue_size, force_update)
-#define wrtie_cmd(cmd)						lcm_util.dsi_write_cmd(cmd)
-#define write_regs(addr, pdata, byte_nums)			lcm_util.dsi_write_regs(addr, pdata, byte_nums)
-#define read_reg(cmd)						lcm_util.dsi_dcs_read_lcm_reg(cmd)
-#define read_reg_v2(cmd, buffer, buffer_size)			lcm_util.dsi_dcs_read_lcm_reg_v2(cmd, buffer, buffer_size)
+#define wrtie_cmd(cmd)						                lcm_util.dsi_write_cmd(cmd)
+#define write_regs(addr, pdata, byte_nums)			        lcm_util.dsi_write_regs(addr, pdata, byte_nums)
+#define read_reg(cmd)						                lcm_util.dsi_dcs_read_lcm_reg(cmd)
+#define read_reg_v2(cmd, buffer, buffer_size)			    lcm_util.dsi_dcs_read_lcm_reg_v2(cmd, buffer, buffer_size)
 
 
 //#define   LCM_DSI_CMD_MODE							1

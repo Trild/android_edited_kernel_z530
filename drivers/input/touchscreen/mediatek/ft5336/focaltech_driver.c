@@ -67,7 +67,7 @@ static u8 tpd_proximity_detect 		= 1;//0-->close ; 1--> far away
 #endif
 
 #ifdef FTS_GESTRUE
-/*#define  KEY_GESTURE_U KEY_U
+#define  KEY_GESTURE_U KEY_U
 #define  KEY_GESTURE_UP KEY_UP
 #define  KEY_GESTURE_DOWN KEY_DOWN
 #define  KEY_GESTURE_LEFT KEY_LEFT
@@ -75,27 +75,27 @@ static u8 tpd_proximity_detect 		= 1;//0-->close ; 1--> far away
 #define  KEY_GESTURE_O KEY_O
 #define  KEY_GESTURE_E KEY_E
 #define  KEY_GESTURE_C KEY_C
-//#define  KEY_GESTURE_M KEY_M
-//#define  KEY_GESTURE_L KEY_L
-//#define  KEY_GESTURE_W KEY_W
-//#define  KEY_GESTURE_S KEY_S
+#define  KEY_GESTURE_M KEY_M
+#define  KEY_GESTURE_L KEY_L
+#define  KEY_GESTURE_W KEY_W
+#define  KEY_GESTURE_S KEY_S
 #define  KEY_GESTURE_V KEY_V
 #define  KEY_GESTURE_Z KEY_Z
-*/
+
 
 
 #define GESTURE_LEFT		0x20
 #define GESTURE_RIGHT		0x21
 #define GESTURE_UP		0x22
 #define GESTURE_DOWN		0x23
-//#define GESTURE_DOUBLECLICK	0x24
+#define GESTURE_DOUBLECLICK	0x24
 #define GESTURE_O		0x30
-//#define GESTURE_W		0x31
-//#define GESTURE_M		0x32
-//#define GESTURE_E		0x33
+#define GESTURE_W		0x31
+#define GESTURE_M		0x32
+#define GESTURE_E		0x33
 #define GESTURE_C		0x34
-//#define GESTURE_L		0x44
-//#define GESTURE_S		0x46
+#define GESTURE_L		0x44
+#define GESTURE_S		0x46
 #define GESTURE_V		0x54
 #define GESTURE_Z		0x41
 
@@ -872,13 +872,13 @@ static void check_gesture(int gesture_id)
 			input_sync(tpd->dev);
 			break;
 
-			/*		case GESTURE_DOUBLECLICK:
+					case GESTURE_DOUBLECLICK:
 					input_report_key(tpd->dev, KEY_GESTURE_U, 1);
 					input_sync(tpd->dev);
 					input_report_key(tpd->dev, KEY_GESTURE_U, 0);
 					input_sync(tpd->dev);
 					break;
-			 */
+			 
 		case GESTURE_O:
 			if(returned_str[2] == '0')
 				goto Gestur_Char_off;
@@ -889,7 +889,7 @@ static void check_gesture(int gesture_id)
 			input_sync(tpd->dev);
 			break;
 
-			/*		case GESTURE_W:
+					case GESTURE_W:
 					input_report_key(tpd->dev, KEY_GESTURE_W, 1);
 					input_sync(tpd->dev);
 					printk("fts report W\n");
@@ -913,7 +913,7 @@ static void check_gesture(int gesture_id)
 					input_sync(tpd->dev);
 					break;
 
-			 */		case GESTURE_C:
+			 		case GESTURE_C:
 			if(returned_str[3] == '0')
 				goto Gestur_Char_off;
 			printk("fts report C\n");
@@ -923,7 +923,7 @@ static void check_gesture(int gesture_id)
 			input_sync(tpd->dev);
 			break;
 
-			/*		case GESTURE_L:
+					case GESTURE_L:
 					input_report_key(tpd->dev, KEY_GESTURE_L, 1);
 					input_sync(tpd->dev);
 					printk("fts report L\n");
@@ -939,7 +939,7 @@ static void check_gesture(int gesture_id)
 					input_sync(tpd->dev);
 					break;
 
-			 */		case GESTURE_V:
+					case GESTURE_V:
 			if(returned_str[4] == '0')
 				goto Gestur_Char_off;
 			input_report_key(tpd->dev, KEY_GESTURE_V, 1);
@@ -1442,32 +1442,32 @@ mt_set_gpio_pull_select(GPIO_CTP_EINT_PIN, GPIO_PULL_UP);
 #ifdef FTS_GESTRUE
 	init_para(720,1280,60,0,0);
 	input_set_capability(tpd->dev, EV_KEY, KEY_POWER);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_U);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_U);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_UP);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_DOWN);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_LEFT);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_RIGHT);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_O);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_E);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_E);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_C);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_M);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_L);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_W);
-	//	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_S);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_M);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_L);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_W);
+	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_S);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_V);
 	input_set_capability(tpd->dev, EV_KEY, KEY_GESTURE_Z);
 	__set_bit(KEY_GESTURE_RIGHT, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_LEFT, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_UP, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_DOWN, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_U, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_U, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_O, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_E, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_E, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_C, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_M, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_W, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_L, tpd->dev->keybit);
-	//	__set_bit(KEY_GESTURE_S, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_M, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_W, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_L, tpd->dev->keybit);
+	__set_bit(KEY_GESTURE_S, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_V, tpd->dev->keybit);
 	__set_bit(KEY_GESTURE_Z, tpd->dev->keybit);
 #endif

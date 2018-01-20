@@ -1,0 +1,132 @@
+  GEN     /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/Makefile
+scripts/kconfig/conf --silentoldconfig Kconfig
+Enter main function!
+The 0th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
+The 1th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+The 2th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 3th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 4th param is: 
+adc_dtsi
+begin to open log file!
+DCT gen no log file for AOSP!
+start to gen code!
+start to read workspace!
+Enter main function!
+The 0th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
+The 1th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+The 2th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 3th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 4th param is: 
+md1_eint_dtsi
+begin to open log file!
+DCT gen no log file for AOSP!
+start to gen code!
+start to read workspace!
+Enter main function!
+The 0th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
+The 1th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+The 2th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 3th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 4th param is: 
+kpd_dtsi
+begin to open log file!
+DCT gen no log file for AOSP!
+start to gen code!
+start to read workspace!
+Enter main function!
+The 0th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
+The 1th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+The 2th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 3th param is: 
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
+The 4th param is: 
+clk_buf_dtsi
+begin to open log file!
+DCT gen no log file for AOSP!
+start to gen code!
+start to read workspace!
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+start to parse fig file!
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+start to parse fig file!
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+start to parse fig file!
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+start to parse fig file!
+start to parse fig file!
+start to parse fig file!
+Start to gen cust_adc.dtsi...
+Gen cust_adc.dtsi file successfully!.
+Start to gen cust_md1_eint.dtsi...
+Gen cust_md1_eint.dtsi file successfully!.
+start to parse fig file!
+start to parse fig file!
+Start to gen cust_kpd.dtsi...
+Gen cust_kpd.dtsi file successfully!.
+Start to gen cust_clk_buf.dtsi...
+Gen cust_clk_buf.dtsi file successfully!.
+  GEN     /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/Makefile
+  CHK     include/generated/uapi/linux/version.h
+  Using /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530 as source for kernel
+  CHK     include/generated/utsrelease.h
+make[2]: «include/generated/mach-types.h» не требует обновления.
+  CC      scripts/mod/devicetable-offsets.s
+  CALL    /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/scripts/checksyscalls.sh
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTLD  scripts/mod/modpost
+  CHK     include/generated/compile.h
+  CC      drivers/input/touchscreen/mediatek/ft5336/focaltech_driver.o
+  LD      drivers/input/touchscreen/mediatek/ft5336/built-in.o
+  LD      drivers/input/touchscreen/mediatek/built-in.o
+  LD      drivers/input/touchscreen/built-in.o
+  LD      drivers/input/built-in.o
+"CONFIG_TRUSTONIC_TEE_SUPPORT = "
+imgsensor drv by platform ov8858_mipi_raw ov8858s_mipi_raw
+mali MTK evironment
+  CC      drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/pmic_drv.o
+  LD      drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/built-in.o
+  LD      drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/built-in.o
+  LD      drivers/misc/mediatek/mach/mt6735/built-in.o
+  LD      drivers/misc/mediatek/mach/built-in.o
+  LD      drivers/misc/mediatek/built-in.o
+  LD      drivers/misc/built-in.o
+  LD      drivers/built-in.o
+  LINK    vmlinux
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  LD      init/built-in.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  OBJCOPY arch/arm/boot/Image
+  DTC     arch/arm/boot/dts/cci6735_35u_l1.dtb
+  Kernel: arch/arm/boot/Image is ready
+  GZIP    arch/arm/boot/compressed/piggy.gzip
+  AS      arch/arm/boot/compressed/piggy.gzip.o
+  LD      arch/arm/boot/compressed/vmlinux
+  OBJCOPY arch/arm/boot/zImage
+  Kernel: arch/arm/boot/zImage is ready
+  CAT     arch/arm/boot/zImage-dtb
+  Kernel: arch/arm/boot/zImage-dtb is ready

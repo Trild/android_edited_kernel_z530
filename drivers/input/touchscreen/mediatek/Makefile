@@ -12,3 +12,4 @@ obj-y   +=  tpd_misc.o
 obj-y   +=  tpd_setting.o
 
 obj-y	+=ft5336/
+

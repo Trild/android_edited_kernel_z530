@@ -106,7 +106,7 @@
 #endif
 
 
-#define TPD_POWER_SOURCE_CUSTOM         	MT6325_POWER_LDO_VGP1 //PMIC_APP_CAP_TOUCH_VDD
+//#define TPD_POWER_SOURCE_CUSTOM         	MT6325_POWER_LDO_VGP1 //PMIC_APP_CAP_TOUCH_VDD
 #define IIC_PORT                   					0				// MT6572: 1  MT6589:0 , Based on the I2C index you choose for TPM
 #define TPD_HAVE_BUTTON									// if have virtual key,need define the MACRO
 #define TPD_BUTTON_HEIGH        				(100) //(40)  			//100

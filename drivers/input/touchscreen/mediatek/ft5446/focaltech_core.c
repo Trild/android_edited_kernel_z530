@@ -245,8 +245,8 @@ struct work_struct fw_update_work;
 #endif
 
 #ifdef LENOVO_CTP_TEST_FLUENCY
-#define LCD_X 1080
-#define LCD_Y 1920
+#define LCD_X 720
+#define LCD_Y 1280
 static struct hrtimer tpd_test_fluency_timer;
 #define TIMER_MS_TO_NS(x) (x * 1000 * 1000)
   
@@ -918,7 +918,7 @@ static int  fts_enter_glove( bool status )
 }
 #endif 
 
-static int  fts_power_ctrl(bool en)
+/*static int  fts_power_ctrl(bool en)
 {
         if (en) {
 		if(fts_power_down)
@@ -931,7 +931,7 @@ static int  fts_power_ctrl(bool en)
 		fts_power_down = true;
 	}
 }
-
+*/
 static int fts_workqueue_init ( void )
 {
 	//TPD_FUN ();
@@ -1991,10 +1991,10 @@ void fts_reset_tp(int HighOrLow)
 		msleep(10);
 		
 	//power on, need confirm with SA
-	#ifdef TPD_POWER_SOURCE_CUSTOM
+//	#ifdef TPD_POWER_SOURCE_CUSTOM
 		//hwPowerOn(TPD_POWER_SOURCE_CUSTOM, VOL_2800, "TP");
-		fts_power_ctrl(true);
-	#endif
+//		fts_power_ctrl(true);
+//	#endif
 	
 
 		mt_set_gpio_mode(GPIO_CTP_RST_PIN, GPIO_CTP_RST_PIN_M_GPIO);
