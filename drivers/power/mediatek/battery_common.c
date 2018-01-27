@@ -691,7 +691,7 @@ static struct battery_data battery_main = {
 	.BAT_PRESENT = 1,
 	.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO,
 	.BAT_CAPACITY = 100,
-	.BAT_batt_vol = 4200,
+	.BAT_batt_vol = 4350,
 	.BAT_batt_temp = 22,
 	/* Dual battery */
 	.status_smb = POWER_SUPPLY_STATUS_NOT_CHARGING,
@@ -3722,7 +3722,7 @@ static int battery_probe(struct platform_device *dev)
 		battery_main.BAT_PRESENT = 1;
 		battery_main.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO;
 		battery_main.BAT_CAPACITY = 100;
-		battery_main.BAT_batt_vol = 4200000;
+		battery_main.BAT_batt_vol = 4350000;
 		battery_main.BAT_batt_temp = 220;
 
 		g_bat_init_flag = KAL_TRUE;
