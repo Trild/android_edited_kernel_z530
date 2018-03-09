@@ -11,5 +11,5 @@ obj-y   +=  tpd_init.o
 obj-y   +=  tpd_misc.o
 obj-y   +=  tpd_setting.o
 
-obj-y	+=ft5336/
+obj-y	+=  ft_allinone_gesture/
 

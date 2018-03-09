@@ -68,6 +68,23 @@ static DECLARE_TASKLET(kpd_keymap_tasklet, kpd_keymap_handler, 0);
 static void kpd_memory_setting(void);
 
 /*********************************************************************/
+
+#ifdef CONFIG_HCT_TP_GESTRUE
+#define TP_GESTURE_KEY	KEY_PROG3
+extern void hct_tpd_suspend(void);
+void tpgesture_hander()
+{
+//mt_power_off();
+       printk("tpgesture_handler report key\n");
+
+       input_report_key(kpd_input_dev, TP_GESTURE_KEY, 1);
+       input_sync(kpd_input_dev);
+       input_report_key(kpd_input_dev, TP_GESTURE_KEY, 0);
+       input_sync(kpd_input_dev);
+       hct_tpd_suspend();
+}
+#endif
+
 static int kpd_pdrv_probe(struct platform_device *pdev);
 static int kpd_pdrv_remove(struct platform_device *pdev);
 #ifndef USE_EARLY_SUSPEND

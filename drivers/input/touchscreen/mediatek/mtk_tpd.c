@@ -537,6 +537,11 @@ static int __init tpd_device_init(void)
 	return 0;
 }
 
+void hct_tpd_suspend(void)
+{
+    if(g_tpd_drv->suspend)
+       g_tpd_drv->suspend(NULL);
+}
 /* should never be called */
 static void __exit tpd_device_exit(void)
 {
