@@ -1,11 +1,11 @@
 #include <linux/init.h>		/* For init/exit macros */
-#include <linux/module.h>	/* For MODULE_ marcros  */
+#include <linux/module.h>	/* For MODULE_ marcros    */
 #include <linux/fs.h>
 #include <linux/device.h>
 #include <linux/interrupt.h>
 #include <linux/spinlock.h>
 #include <linux/platform_device.h>
-  
+
 #include <linux/device.h>
 #include <linux/kdev_t.h>
 #include <linux/fs.h>
@@ -45,7 +45,8 @@
 #include <net/sock.h>
 #include <net/genetlink.h>
 #include <linux/reboot.h>
-#include <linux/vmalloc.h>
+
+
 
 /* ============================================================ // */
 /* define */
@@ -69,8 +70,6 @@ static char proc_fgadc_data[32];
 
 kal_bool gFG_Is_Charging = KAL_FALSE;
 kal_bool gFG_Is_Charging_init = KAL_FALSE;
-
-kal_int32 cci_ntc_fixed_25degc = 0;
 
 kal_int32 g_auxadc_solution = 0;
 U32 g_spm_timer = 600;
@@ -240,7 +239,7 @@ struct timespec suspend_time, car_time;
 kal_int32 g_sw_vbat_temp = 0;
 struct timespec last_oam_run_time;
 static kal_int32 coulomb_before_sleep = 0x123456;
-static kal_int32 last_time=0;
+static kal_int32 last_time=1;
 /* aging mechanism */
 #ifdef MTK_ENABLE_AGING_ALGORITHM
 static kal_int32 aging_ocv_1 = 0;
@@ -496,8 +495,6 @@ extern BATTERY_VOLTAGE_ENUM cv_voltage;
 extern kal_uint32 battery_tracking_time;
 extern kal_uint32 wake_up_smooth_time;
 extern kal_bool g_battery_soc_ready;
-extern int g_battery_thermal_throttling_flag;
-
 extern void mt_battery_update_status(void);
 extern void bat_update_thread_wakeup(void);
 #ifdef MTK_MULTI_BAT_PROFILE_SUPPORT
@@ -1621,12 +1618,6 @@ int force_get_tbat(kal_bool update)
 	int bat_temperature_volt_temp = 0;
 	int ret = 0;
 
-       if( cci_ntc_fixed_25degc ==1 )
-       {
-               return 25;
-       }
-
-
 	if (update == KAL_TRUE || pre_bat_temperature_val == -1) {
 		/* Get V_BAT_Temperature */
 		bat_temperature_volt = 2;
@@ -1824,8 +1815,8 @@ kal_int32 get_dynamic_period(int first_use, int first_wakeup_time, int battery_c
 			 "[get_dynamic_period] car_instant=%d, car_wakeup=%d, car_sleep=%d, I_sleep=%d, gFG_BATT_CAPACITY=%d, add_time=%d, last_time=%d, new_time=%d , battery_capacity_level = %d\r\n",
 			 car_instant, car_wakeup, car_sleep, I_sleep, gFG_BATT_CAPACITY_aging, add_time, last_time,
 			 new_time, battery_capacity_level);
-		if (new_time > 1000)
-			new_time = 1000;
+		if (new_time > 1800)
+			new_time = 1800;
 		ret_val = new_time;
 
 		if (ret_val == 0)
@@ -1833,7 +1824,7 @@ kal_int32 get_dynamic_period(int first_use, int first_wakeup_time, int battery_c
 
 		/* update parameter */
 		car_sleep = car_wakeup;
-		g_spm_timer = 600;
+		g_spm_timer = ret_val;
 	} else if (vbat_val > VBAT_LOW_POWER_WAKEUP) {	/* 3.5v */
 		g_spm_timer = LOW_POWER_WAKEUP_PERIOD;	/* 5 min */
 	} else {
@@ -2975,36 +2966,6 @@ static ssize_t store_FG_discharge_tracking_time(struct device *dev, struct devic
 static DEVICE_ATTR(FG_discharge_tracking_time, 0664, show_FG_discharge_tracking_time, store_FG_discharge_tracking_time);
 /* ------------------------------------------------------------------------------------------- */
 #endif
-
-static ssize_t show_F_cci_ntc_fixed_25degc(struct device *dev,struct device_attribute *attr, char *buf)
-{
-    bm_print(BM_LOG_CRTI, "[FG] cci_ntc_fixed_25degc : %d\n", cci_ntc_fixed_25degc);
-    return sprintf(buf, "%d\n", cci_ntc_fixed_25degc);
-}
-static ssize_t store_F_cci_ntc_fixed_25degc(struct device *dev,struct device_attribute *attr, const char *buf, size_t size)
-{
-    char *pvalue = NULL;
-    unsigned int reg_store_temp = 0;
-    bm_print(BM_LOG_CRTI, "[FG] cci_ntc_fixed_25degc\n");
-    if(buf != NULL && size != 0)
-    {
-        bm_print(BM_LOG_CRTI, "[FG] buf is %s and size is %d \n",buf,size);
-        reg_store_temp = simple_strtoul(buf,&pvalue,16);
-        cci_ntc_fixed_25degc = reg_store_temp;
-        if( cci_ntc_fixed_25degc ==1)
-        {
-            g_battery_thermal_throttling_flag =2;
-        }
-        else
-        {
-            g_battery_thermal_throttling_flag =1;
-        }
-        bm_print(BM_LOG_CRTI, "[FG] store cci_ntc_fixed_25degc : %x ,chg time out:%d\n",cci_ntc_fixed_25degc,g_battery_thermal_throttling_flag);             }
-
-    return size;
-}
-static DEVICE_ATTR(F_cci_ntc_fixed_25degc, 0664, show_F_cci_ntc_fixed_25degc, store_F_cci_ntc_fixed_25degc);
-
 static ssize_t show_FG_shutdown_gauge0(struct device *dev, struct device_attribute *attr, char *buf)
 {
 	bm_print(BM_LOG_CRTI, "[FG] show shutdown_gauge0 : %d\n", shutdown_gauge0);
@@ -3153,7 +3114,6 @@ static int battery_meter_probe(struct platform_device *dev)
 	ret_device_file = device_create_file(&(dev->dev), &dev_attr_FG_Max_Battery_Temperature);
 	ret_device_file = device_create_file(&(dev->dev), &dev_attr_FG_Min_Battery_Temperature);
 #endif
-	ret_device_file = device_create_file(&(dev->dev), &dev_attr_F_cci_ntc_fixed_25degc);
 
     batt_meter_init_cust_data(dev);
 
@@ -3189,9 +3149,6 @@ static int battery_meter_suspend(struct platform_device *dev, pm_message_t state
 #endif
 		mt_battery_update_time(&car_time,CAR_TIME);
 		add_time = mt_battery_get_duration_time(CAR_TIME);
-		if (sleep_total_time == 0) {
-			last_time = 0;
-		}
 		if ((sleep_total_time < g_spm_timer) && sleep_total_time != 0) {
 			if (wake_up_smooth_time == 0)
 				return 0;
@@ -3199,7 +3156,6 @@ static int battery_meter_suspend(struct platform_device *dev, pm_message_t state
 				return 0;
 		}
 		sleep_total_time = 0;
-		last_time = 0;
 		battery_meter_ctrl(BATTERY_METER_CMD_GET_HW_OCV, &g_hw_ocv_before_sleep);
 		bm_print(BM_LOG_CRTI, "[battery_meter_suspend]2. sleep_total_time = %d, last_time = %d\n", sleep_total_time, last_time);
 	}

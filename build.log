@@ -20,20 +20,18 @@ The 0th param is:
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
 The 1th param is: 
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
+start to parse fig file!
 The 2th param is: 
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
 The 3th param is: 
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
 The 4th param is: 
-md1_eint_dtsi
+kpd_dtsi
 begin to open log file!
 DCT gen no log file for AOSP!
 start to gen code!
 start to read workspace!
-/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
-start to parse fig file!
-/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
-start to parse fig file!
 Enter main function!
 The 0th param is: 
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/tools/dct/DrvGen
@@ -44,7 +42,7 @@ The 2th param is:
 The 3th param is: 
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/inc
 The 4th param is: 
-kpd_dtsi
+md1_eint_dtsi
 begin to open log file!
 DCT gen no log file for AOSP!
 start to gen code!
@@ -68,34 +66,192 @@ start to gen code!
 start to read workspace!
 /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
 start to parse fig file!
+/home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/drivers/misc/mediatek/mach/mt6735/cci6735_35u_l1/dct/dct/codegen.dws
 start to parse fig file!
 start to parse fig file!
-Start to gen cust_md1_eint.dtsi...
 Start to gen cust_adc.dtsi...
 Gen cust_adc.dtsi file successfully!.
+start to parse fig file!
+Start to gen cust_md1_eint.dtsi...
 Gen cust_md1_eint.dtsi file successfully!.
 start to parse fig file!
 Start to gen cust_kpd.dtsi...
 Gen cust_kpd.dtsi file successfully!.
   GEN     /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/out/Makefile
-  CHK     include/generated/uapi/linux/version.h
 start to parse fig file!
 Start to gen cust_clk_buf.dtsi...
 Gen cust_clk_buf.dtsi file successfully!.
-  Using /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530 as source for kernel
+  CHK     include/generated/uapi/linux/version.h
   CHK     include/generated/utsrelease.h
+  Using /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530 as source for kernel
   CC      scripts/mod/devicetable-offsets.s
-make[2]: «include/generated/mach-types.h» не требует обновления.
-  CALL    /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/scripts/checksyscalls.sh
   GEN     scripts/mod/devicetable-offsets.h
   HOSTCC  scripts/mod/file2alias.o
   HOSTLD  scripts/mod/modpost
+make[2]: «include/generated/mach-types.h» не требует обновления.
+  CALL    /home/ytrilda/Android/kernel/kernels-3.10/android_edited_kernel_z530/scripts/checksyscalls.sh
   CHK     include/generated/compile.h
 "CONFIG_TRUSTONIC_TEE_SUPPORT = "
+  CC      drivers/power/mediatek/battery_common.o
+  CC      drivers/spi/spi.o
+  LD      drivers/spi/built-in.o
+  LD      drivers/power/mediatek/built-in.o
+  LD      drivers/power/built-in.o
+  CC      drivers/switch/switch_class.o
+  CC      drivers/staging/android/ion/ion.o
+  LD      drivers/switch/built-in.o
 mali MTK evironment
+  CC      drivers/thermal/thermal_core.o
+  CC      drivers/tty/tty_io.o
 imgsensor drv by platform ov8858_mipi_raw ov8858s_mipi_raw
-  Kernel: arch/arm/boot/Image is ready
+  CC      drivers/staging/android/ion/ion_heap.o
+  CC      drivers/staging/android/ion/ion_page_pool.o
+  LD      drivers/thermal/thermal_sys.o
+  LD      drivers/thermal/built-in.o
+  CC      drivers/tty/n_tty.o
+  CC      drivers/staging/android/ion/ion_system_heap.o
+  CC      drivers/usb/class/cdc-acm.o
+  CC      drivers/staging/android/ion/ion_carveout_heap.o
+  CC      drivers/tty/tty_ioctl.o
+  CC      drivers/staging/android/ion/ion_chunk_heap.o
+  CC      drivers/usb/class/usblp.o
+  CC      drivers/staging/android/ion/ion_cma_heap.o
+  CC      drivers/tty/tty_ldisc.o
+  CC      drivers/staging/android/ion/ion_debug.o
+  CC      drivers/tty/tty_buffer.o
+  LD      drivers/usb/class/built-in.o
+  CC      drivers/usb/core/usb.o
+  CC      drivers/tty/tty_port.o
+  CC      drivers/staging/android/ion/mtk/ion_drv.o
+  CC      drivers/usb/core/hub.o
+  CC      drivers/tty/tty_mutex.o
+  CC      drivers/staging/android/ion/mtk/ion_mm_heap.o
+  CC      drivers/tty/tty_ldsem.o
+  CC      drivers/staging/android/ion/mtk/ion_fb_heap.o
+  CC      drivers/tty/pty.o
+  LD      drivers/staging/android/ion/mtk/built-in.o
+  LD      drivers/staging/android/ion/built-in.o
+  CC      drivers/staging/android/ashmem.o
+  CC      drivers/tty/tty_audit.o
+  CC      drivers/staging/android/logger.o
+  CC      drivers/tty/sysrq.o
+  CC      drivers/usb/core/hcd.o
+  CC      drivers/staging/android/timed_output.o
+  CC      drivers/tty/serial/serial_core.o
+  CC      drivers/usb/core/urb.o
+  CC      drivers/staging/android/lowmemorykiller.o
+  CC      drivers/usb/core/message.o
+  CC      drivers/staging/android/alarm-dev.o
+  CC      drivers/usb/core/driver.o
+  CC      drivers/staging/android/sync.o
+  LD      drivers/tty/serial/built-in.o
+  LD      drivers/tty/built-in.o
+  CC      drivers/usb/core/config.o
+  CC      drivers/usb/core/file.o
+  CC      drivers/video/fb_notify.o
+  CC      drivers/usb/core/buffer.o
+  CC      drivers/video/fbmem.o
+  CC      drivers/staging/android/sw_sync.o
+  CC      drivers/usb/core/sysfs.o
+  LD      drivers/staging/android/built-in.o
+  CC      drivers/staging/zram/zram_drv.o
+  CC      drivers/usb/gadget/android.o
+  CC      drivers/usb/core/endpoint.o
+  CC      drivers/video/fbmon.o
+  CC      drivers/usb/core/devio.o
+  CC      drivers/staging/zram/zram_sysfs.o
+  LD      drivers/staging/zram/zram.o
+  LD      drivers/staging/zram/built-in.o
+  CC      drivers/staging/zsmalloc/zsmalloc-main.o
+  CC      drivers/video/fbcmap.o
+  LD      drivers/staging/zsmalloc/zsmalloc.o
+  LD      drivers/staging/zsmalloc/built-in.o
+  LD      drivers/staging/built-in.o
+  CC      drivers/usb/core/notify.o
+  CC      drivers/video/fbsysfs.o
+  CC      drivers/video/modedb.o
+  CC      drivers/usb/core/generic.o
+  CC      drivers/usb/misc/trancevibrator.o
+  CC      drivers/usb/core/quirks.o
+  CC      drivers/video/fbcvt.o
+  LD      drivers/usb/misc/built-in.o
+  CC      drivers/usb/phy/phy.o
+  CC      drivers/usb/core/devices.o
+  CC      drivers/usb/phy/phy-nop.o
+  CC      drivers/video/cfbfillrect.o
+  LD      drivers/usb/phy/built-in.o
+  CC      drivers/usb/core/port.o
+  CC      drivers/usb/storage/alauda.o
+  CC      drivers/video/cfbcopyarea.o
+  LD      drivers/usb/core/usbcore.o
+  LD      drivers/usb/core/built-in.o
+  CC      drivers/video/cfbimgblt.o
+  LD      drivers/video/fb.o
+  CC      drivers/usb/gadget/config.o
+  LD      drivers/video/built-in.o
+  CC      drivers/usb/usb-common.o
+  CC      drivers/usb/storage/cypress_atacb.o
+  CC      drivers/usb/gadget/composite.o
+  CC      drivers/usb/gadget/functions.o
+  CC      drivers/usb/gadget/configfs.o
+  CC      drivers/usb/storage/datafab.o
+  CC      drivers/usb/gadget/f_acm.o
+  CC      drivers/usb/storage/freecom.o
+  CC      drivers/usb/gadget/f_serial.o
+  CC      drivers/usb/gadget/u_serial.o
+  CC      drivers/usb/storage/isd200.o
+  CC      drivers/usb/storage/jumpshot.o
+  CC      drivers/usb/storage/karma.o
+  CC      drivers/usb/storage/onetouch.o
+  CC      drivers/usb/storage/sddr09.o
+  CC      drivers/usb/storage/sddr55.o
+  LD      drivers/usb/gadget/libcomposite.o
+  LD      drivers/usb/gadget/usb_f_acm.o
+  LD      drivers/usb/gadget/usb_f_serial.o
+  LD      drivers/usb/gadget/g_android.o
+  LD      drivers/usb/gadget/built-in.o
+  CC      drivers/usb/storage/shuttle_usbat.o
+  CC      drivers/usb/storage/scsiglue.o
+  CC      drivers/usb/storage/protocol.o
+  CC      drivers/usb/storage/transport.o
+  CC      drivers/usb/storage/usb.o
+  CC      drivers/usb/storage/initializers.o
+  CC      drivers/usb/storage/sierra_ms.o
+  CC      drivers/usb/storage/option_ms.o
+  CC      drivers/usb/storage/usual-tables.o
+  LD      drivers/usb/storage/ums-alauda.o
+  LD      drivers/usb/storage/ums-cypress.o
+  LD      drivers/usb/storage/ums-datafab.o
+  LD      drivers/usb/storage/usb-storage.o
+  LD      drivers/usb/storage/ums-jumpshot.o
+  LD      drivers/usb/storage/ums-freecom.o
+  LD      drivers/usb/storage/ums-isd200.o
+  LD      drivers/usb/storage/ums-karma.o
+  LD      drivers/usb/storage/ums-sddr09.o
+  LD      drivers/usb/storage/ums-onetouch.o
+  LD      drivers/usb/storage/ums-usbat.o
+  LD      drivers/usb/storage/ums-sddr55.o
+  LD      drivers/usb/storage/built-in.o
+  LD      drivers/usb/built-in.o
+  LD      drivers/built-in.o
+  LINK    vmlinux
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  LD      init/built-in.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  OBJCOPY arch/arm/boot/Image
   DTC     arch/arm/boot/dts/cci6735_35u_l1.dtb
+  Kernel: arch/arm/boot/Image is ready
+  GZIP    arch/arm/boot/compressed/piggy.gzip
+  AS      arch/arm/boot/compressed/piggy.gzip.o
   LD      arch/arm/boot/compressed/vmlinux
   OBJCOPY arch/arm/boot/zImage
   Kernel: arch/arm/boot/zImage is ready

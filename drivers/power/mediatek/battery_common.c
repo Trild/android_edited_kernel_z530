@@ -494,6 +494,7 @@ int init_proc_log(void)
 	battery_log(BAT_LOG_CRTI, "proc_create bat_proc_fops\n");
 #else
 	proc_entry = create_proc_entry("batdrv_log", 0644, NULL);
+
 	if (proc_entry == NULL) {
 		ret = -ENOMEM;
 		battery_log(BAT_LOG_FULL, "init_proc_log: Couldn't create proc entry\n");
@@ -689,9 +690,9 @@ static struct battery_data battery_main = {
 	.BAT_STATUS = POWER_SUPPLY_STATUS_FULL,
 	.BAT_HEALTH = POWER_SUPPLY_HEALTH_GOOD,
 	.BAT_PRESENT = 1,
-	.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO,
+	.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LION,
 	.BAT_CAPACITY = 100,
-	.BAT_batt_vol = 4350,
+	.BAT_batt_vol = 4200,
 	.BAT_batt_temp = 22,
 	/* Dual battery */
 	.status_smb = POWER_SUPPLY_STATUS_NOT_CHARGING,
@@ -703,7 +704,7 @@ static struct battery_data battery_main = {
 	.BAT_STATUS = POWER_SUPPLY_STATUS_NOT_CHARGING,
 	.BAT_HEALTH = POWER_SUPPLY_HEALTH_GOOD,
 	.BAT_PRESENT = 1,
-	.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO,
+	.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LION,
 	#if defined(CONFIG_MTK_PUMP_EXPRESS_SUPPORT) || defined(CONFIG_MTK_PUMP_EXPRESS_PLUS_SUPPORT)
 	.BAT_CAPACITY = -1,
 	#else
@@ -1418,7 +1419,7 @@ static ssize_t show_Charger_TopOff_Value(struct device *dev, struct device_attri
 					 char *buf)
 {
 	int ret_value = 1;
-	ret_value = 4350;
+	ret_value = 4110;
 	battery_log(BAT_LOG_CRTI, "[EM] Charger_TopOff_Value : %d\n", ret_value);
 	return sprintf(buf, "%u\n", ret_value);
 }
@@ -1791,9 +1792,9 @@ static void battery_update(struct battery_data *bat_data)
 	struct power_supply *bat_psy = &bat_data->psy;
 	kal_bool resetBatteryMeter = KAL_FALSE;
 
-	bat_data->BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO;
+	bat_data->BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LION;
 	bat_data->BAT_HEALTH = POWER_SUPPLY_HEALTH_GOOD;
- 	bat_data->BAT_batt_vol = BMT_status.bat_vol * 1000; 
+	bat_data->BAT_batt_vol = BMT_status.bat_vol;
 	bat_data->BAT_batt_temp = BMT_status.temperature * 10;
 	bat_data->BAT_PRESENT = BMT_status.bat_exist;
 
@@ -3720,9 +3721,9 @@ static int battery_probe(struct platform_device *dev)
 		battery_main.BAT_STATUS = POWER_SUPPLY_STATUS_FULL;
 		battery_main.BAT_HEALTH = POWER_SUPPLY_HEALTH_GOOD;
 		battery_main.BAT_PRESENT = 1;
-		battery_main.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LIPO;
+		battery_main.BAT_TECHNOLOGY = POWER_SUPPLY_TECHNOLOGY_LION;
 		battery_main.BAT_CAPACITY = 100;
-		battery_main.BAT_batt_vol = 4350000;
+		battery_main.BAT_batt_vol = 4200;
 		battery_main.BAT_batt_temp = 220;
 
 		g_bat_init_flag = KAL_TRUE;
@@ -3990,16 +3991,20 @@ static int battery_cmd_read(char *buf, char **start, off_t off, int count, int *
 {
 	int len = 0;
 	char *p = buf;
+
 	p += sprintf(p,
 		     "g_battery_thermal_throttling_flag=%d,\nbattery_cmd_thermal_test_mode=%d,\nbattery_cmd_thermal_test_mode_value=%d\n",
 		     g_battery_thermal_throttling_flag, battery_cmd_thermal_test_mode,
 		     battery_cmd_thermal_test_mode_value);
+
 	*start = buf + off;
+
 	len = p - buf;
 	if (len > off)
 		len -= off;
 	else
 		len = 0;
+
 	return len < count ? len : count;
 }
 #endif

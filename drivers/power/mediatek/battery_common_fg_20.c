@@ -117,7 +117,7 @@ static char *DISO_state_s[8] = {
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
 /* // Thermal related flags */
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
-int g_battery_thermal_throttling_flag = 1;	/* 0:nothing, 1:enable batTT&chrTimer, 2:disable batTT&chrTimer, 3:enable batTT, disable chrTimer */
+int g_battery_thermal_throttling_flag = 3;	/* 0:nothing, 1:enable batTT&chrTimer, 2:disable batTT&chrTimer, 3:enable batTT, disable chrTimer */
 int battery_cmd_thermal_test_mode = 0;
 int battery_cmd_thermal_test_mode_value = 0;
 int g_battery_tt_check_flag = 0;	/* 0:default enable check batteryTT, 1:default disable check batteryTT */
@@ -2403,11 +2403,7 @@ void mt_battery_update_status(void)
 #if defined(CONFIG_POWER_EXT)
 	battery_log(BAT_LOG_CRTI, "[BATTERY] CONFIG_POWER_EXT, no update Android.\n");
 #else
-	if (g_battery_soc_ready 
-					|| (g_platform_boot_mode == META_BOOT)
-				    || (g_platform_boot_mode == ADVMETA_BOOT)
-				    || (g_platform_boot_mode == ATE_FACTORY_BOOT)
-				    || (g_platform_boot_mode == FACTORY_BOOT)) {
+	if (g_battery_soc_ready) {
 		wireless_update(&wireless_main);
 		battery_update(&battery_main);
 		ac_update(&ac_main);

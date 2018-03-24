@@ -69,6 +69,12 @@ CHR_CURRENT_ENUM g_temp_input_CC_value = CHARGE_CURRENT_0_00_MA;
 kal_uint32 g_usb_state = USB_UNCONFIGURED;
 static bool usb_unlimited=false;
 
+#if defined(HIGH_BATTERY_VOLTAGE_SUPPORT)
+	BATTERY_VOLTAGE_ENUM cv_voltage = BATTERY_VOLT_04_200000_V;
+#else
+	BATTERY_VOLTAGE_ENUM cv_voltage = BATTERY_VOLT_04_350000_V;
+#endif
+
   /* ///////////////////////////////////////////////////////////////////////////////////////// */
   /* // PUMP EXPRESS */
   /* ///////////////////////////////////////////////////////////////////////////////////////// */
@@ -826,7 +832,10 @@ PMU_STATUS BAT_BatteryFullAction(void)
 
 		BMT_status.bat_in_recharging_state = KAL_TRUE;
 		BMT_status.bat_charging_state = CHR_CC;
+	#ifndef CONFIG_MTK_HAFG_20
 		battery_meter_reset();
+	#endif
+	
 	}
 
 
